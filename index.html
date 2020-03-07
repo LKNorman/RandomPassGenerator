@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <script src="script.js"></script>
+    <!-- This script allows the use of rando tags in javascript to allow cleaner code -->
+    <script src="https://randojs.com/1.0.0.js"></script>
+    <div class="wrapper">
+      <header>
+        <h1>Password Generator</h1>
+      </header>
+      <div class="card">
+        <div class="card-header">
+          <h2>Generate a Password</h2>
+        </div>
+        <div class="card-body">
+          <textarea
+            readonly
+            id="password"
+            placeholder="Your Secure Password"
+            aria-label="Generated Password"
+          ></textarea>
+        </div>
+        <div class="card-footer">
+          <!-- modified button to generate new pass based on current specs, refresh page to make new specs -->
+          <button id="generate" class="btn" onclick="generateNewPassword();">
+            Generate Password
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
