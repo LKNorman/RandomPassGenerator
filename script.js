@@ -32,3 +32,26 @@ while (!uppers && !lowers && !numbers && !symbols) {
   numbers = confirm("Would you like to use numbers?");
   symbols = confirm("Would you like to use special characters?");
 }
+
+// when the window loads the alerts will pop up
+window.addEventListener("load", function() {
+  generateNewPassword();
+});
+
+// function for the password generation, including rando.js tags to make the randomization cleaner
+function generateNewPassword() {
+  var password = "";
+
+  var allowed = {};
+  if (uppers)
+    password += rando((allowed.uppers = "QWERTYUIOPASDFGHJKLZXCVBNM"));
+  if (lowers)
+    password += rando((allowed.lowers = "qwertyuiopasdfghjklzxcvbnm"));
+  if (numbers) password += rando((allowed.numbers = "1234567890"));
+  if (symbols) password += rando((allowed.symbols = "!@#$%^&*(){}[]=<>/,."));
+
+  for (var i = password.length; i < length; i++)
+    password += rando(rando(allowed).value);
+
+  document.getElementById("password").value = randoSequence(password).join("");
+}
